@@ -1,0 +1,42 @@
+<div class="container mt-5">
+
+	<h3 class="text-center">Agregar una nueva persona</h3>
+	<div>
+		<form [formGroup]="personForm" (ngSubmit)="onSubmit()" class="row">
+			<mat-form-field class="col-12 col-sm-6 position-relative mb-3" appearance="fill">
+				<mat-label>Nombre</mat-label>
+				<input matInput placeholder="Ingrese su nombre..." formControlName="name">
+				<div *ngIf="name.errors?.['required'] && name.touched" class="error-msg">
+					* Campo requerido 
+				</div>			
+			</mat-form-field>
+			
+			<mat-form-field class="col-12 col-sm-6 position-relative mb-3" appearance="fill">
+				<mat-label>Edad</mat-label>
+				<input matInput type="number" placeholder="Ingrese su edad..." formControlName="age">
+				<div *ngIf="age.errors?.['required'] && age.touched" class="error-msg">
+					* Campo requerido 
+				</div>
+				<div *ngIf="age.errors?.['max'] && age.touched" class="error-msg">
+					* No estarás mintiendo?
+				</div>
+			</mat-form-field>
+			<mat-form-field class="col-12 col-sm-6 position-relative mb-3" appearance="fill">
+				<mat-label>Carrera</mat-label>
+				<input matInput placeholder="Ingrese su carrera..." formControlName="career">
+			</mat-form-field>
+			<mat-form-field class="col-12 col-sm-6 position-relative mb-3" appearance="fill">
+				<mat-label>Hobbie</mat-label>
+				<input matInput placeholder="Ingrese su hobbie..." formControlName="hobbie">
+				<div *ngIf="hobbie.errors?.['required'] && hobbie.touched" class="error-msg">
+					* Campo requerido 
+				</div>
+			</mat-form-field>
+			<button mat-raised-button 
+			class="col-12 btn-add" 
+			color="primary"
+			type="submit"
+			[disabled]="!personForm.valid">Agregar</button>
+		</form>
+	</div>
+</div>

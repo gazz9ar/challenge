@@ -1,0 +1,8 @@
+.btn-goback {
+	width: 200px;
+    height: 58px;
+	@media (max-width:890px) {
+		width: 150px;
+		height: 40px;
+	}
+}
